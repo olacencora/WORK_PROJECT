@@ -258,7 +258,7 @@
       <div class="shape3 shape"></div>
       <div class="shape4 shape"></div>
       <div class="shape5 shape"></div>
-
+      <!-- page 1  -->
       <div id="page1">
         <p class="title1">
           * wybierz rodzaj projektu
@@ -552,8 +552,11 @@
       let radioBox = document.getElementsByClassName("radio-box");
       let projectType = document.getElementsByClassName("project-type");
       let projectTypeArray = [];
+      console.log("wszytskie inputy:");
+      console.log(projectType);
 
       for (let i = 0; i < projectType.length; i++) {
+        console.log(projectType[i]);
         projectType[i].addEventListener("click", (event) => {
           projectTypeArray.push(projectType[i]);
 
@@ -568,12 +571,18 @@
               if (projectTypeArray[j].checked == false) {
                 projectTypeArray[j].parentElement.style.backgroundColor =
                   "#f4f4f4";
+
                 // remove btn
                 projectTypeArray[
                   j
                 ].parentElement.parentElement.lastChild.style.display = "none";
               }
             }
+
+            console.log("element clicked: ");
+            console.log(projectTypeArray[i]);
+            console.log("parent element clicked: ");
+            console.log(projectTypeArray[i].parentElement);
             // change color to green
             let parent = projectType[i].parentElement;
             parent.style.backgroundColor = "#d2e0d2";
