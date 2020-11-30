@@ -1,0 +1,275 @@
+﻿﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <title>karta projektu</title>
+</head>
+<style>
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  html {
+    font-size: 10px;
+  }
+
+  :root {
+    --main-bg-color: #fcfcfc;
+    --main-box-color: #f4f4f4;
+    --main-shape-color: #d2e0d2;
+    --main-txt-color: #000;
+    --second-txt-color: #8baf8b;
+    --main-accent-color: #f7bb4b;
+  }
+
+  #wrapper {
+    max-width: 1300px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-bg-color);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    margin: 30px auto;
+    font-family: "Nunito", sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section {
+    width: 100%;
+
+  }
+
+  /* ///////////////////////////// SHAPES ////////////////////////// */
+
+  .shape {
+    position: absolute;
+    background-size: contain;
+    border-radius: 50%;
+    width: 50vw;
+    height: 50vw;
+    transition: ease-in-out 0.5s;
+    z-index: 1;
+  }
+
+  .shape3:hover {
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  .shape1:hover {
+    transform: scale(1.03);
+  }
+
+  .shape1 {
+    max-height: 400px;
+    max-width: 400px;
+    background-image: url("https://s3-eu-west-1.amazonaws.com/salesmanagoimg/36ah1dxt6fpehf53/bz0skjq3it4c2v3k/q6wm0egopzkdz7k9.png");
+    right: -140px;
+    top: 20px;
+    opacity: 0.4;
+  }
+
+  .shape2 {
+    max-height: 100px;
+    max-width: 100px;
+    background-color: var(--main-shape-color);
+    right: 40px;
+    top: -10px;
+    opacity: 0.2;
+  }
+
+  .shape3 {
+    max-height: 150px;
+    max-width: 150px;
+    background-color: var(--main-shape-color);
+    background-image: url("https://s3-eu-west-1.amazonaws.com/salesmanagoimg/36ah1dxt6fpehf53/bz0skjq3it4c2v3k/lt0rwnpszkf17vfi.png");
+    left: 100px;
+    top: -50px;
+    opacity: 0.5;
+  }
+
+  .shape4 {
+    max-height: 300px;
+    max-width: 300px;
+    background-image: url("https://s3-eu-west-1.amazonaws.com/salesmanagoimg/36ah1dxt6fpehf53/bz0skjq3it4c2v3k/lt0rwnpszkf17vfi.png");
+    left: -70px;
+    bottom: -80px;
+    opacity: 0.5;
+  }
+
+  .shape5 {
+    max-height: 70px;
+    max-width: 70px;
+    background-color: var(--main-shape-color);
+    left: 50px;
+    top: 80px;
+    opacity: 0.2;
+  }
+
+  /* ///////////////////////////// TEXTS ////////////////////////// */
+
+  .title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    padding: 30px 10px;
+  }
+
+  /* ////////////////////////// RADIO BUTTONS //////////////////////// */
+
+  .radio-box {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    padding: 1.3rem;
+    background-color: var(--main-box-color);
+    border: 1px solid var(--main-box-color);
+    border-radius: 24px;
+    height: 48px;
+    min-width: 150px;
+    text-align: center;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+  }
+
+  .radio-box:hover {
+    border: 1px solid var(--main-accent-color);
+
+  }
+
+  .project-type {
+    width: 1px;
+    visibility: hidden;
+  }
+
+  .page-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-box-row {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .page-box-label {
+    position: relative;
+  }
+
+  /* ////////////////////////// INPUTS //////////////////////// */
+
+  .input-box {
+    width: 100%;
+  }
+
+  .input {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    padding: 1.3rem 3rem;
+    background-color: var(--main-bg-color);
+    border: 1px solid var(--second-txt-color);
+    border-radius: 24px;
+    height: 48px;
+    min-width: 300px;
+    width: 50%;
+    text-align: left;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+    outline: none;
+
+  }
+
+  .input:focus {
+    border: 1px solid var(--main-accent-color);
+  }
+</style>
+
+<body>
+  <div id="wrapper">
+    <div class="shape1 shape"></div>
+    <div class="shape2 shape"></div>
+    <div class="shape3 shape"></div>
+    <div class="shape4 shape"></div>
+    <div class="shape5 shape"></div>
+    <section class="selection">
+      <h2 class="title"> * wybierz rodzaj projektu</h2>
+      <div class="page-box">
+        <label for="info-email" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-email" name="project-type" class="project-type" />
+            <span class="radio-span">email</span>
+          </div>
+        </label>
+        <label for="info-form" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-form" name="project-type" class="project-type" />
+            <span class="radio-span">formularz</span>
+          </div>
+        </label>
+        <label for="info-popup" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-popup" name="project-type" class="project-type" />
+            <span class="radio-span">pop-up</span>
+          </div>
+        </label>
+        <label for="info-landing" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-landing" name="project-type" class="project-type" />
+            <span class="radio-span">landing page</span>
+          </div>
+        </label>
+        <label for="info-sidebar" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-sidebar" name="project-type" class="project-type" />
+            <span class="radio-span">sidbar</span>
+          </div>
+        </label>
+        <label for="info-socialproof" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-socialproof" name="project-type" class="project-type" />
+            <span class="radio-span">social-proof</span>
+          </div>
+        </label>
+        <label for="info-concept" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-concept" name="project-type" class="project-type" />
+            <span class="radio-span">koncepcja</span>
+          </div>
+        </label>
+        <label for="info-correction" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-correction" name="project-type" class="project-type" />
+            <span class="radio-span">poprawka</span>
+          </div>
+        </label>
+
+      </div>
+    </section>
+    <section class="section column-center" id="section-1">
+      <h2 class="title"> * nazwa na koncie klienta</h2>
+      <div class="input-box column-center">
+        <input type=" text" class="input" id="input-name" placeholder="nazwa" />
+      </div>
+    </section>
+
+
+</body>
+
+</html>

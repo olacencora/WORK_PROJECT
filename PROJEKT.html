@@ -1,688 +1,755 @@
 ﻿﻿<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <title>karta projektu</title>
-  </head>
-  <style>
-    * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
-    }
 
-    html {
-      font-size: 10px;
-    }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <title>karta projektu</title>
+</head>
+<style>
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
 
-    :root {
-      --main-bg-color: #fcfcfc;
-      --main-box-color: #f4f4f4;
-      --main-shape-color: #d2e0d2;
-      --main-txt-color: #000;
-      --second-txt-color: #8baf8b;
-    }
+  html {
+    font-size: 10px;
+  }
 
-    #wrapper {
-      max-width: 1300px;
-      width: 100%;
-      height: 800px;
-      background-color: var(--main-bg-color);
-      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.04);
-      border-radius: 20px;
-      margin: 30px auto;
-      font-family: "Nunito", sans-serif;
-      overflow: hidden;
-      position: relative;
-    }
+  :root {
+    --main-bg-color: #fcfcfc;
+    --main-box-color: #f4f4f4;
+    --main-shape-color: #d2e0d2;
+    --main-txt-color: #000;
+    --second-txt-color: #8baf8b;
+    --main-accent-color: #f7bb4b;
+  }
 
-    .page {
-      flex-direction: column;
-      align-content: center;
-      display: none;
-    }
+  #wrapper {
+    max-width: 1300px;
+    width: 100%;
+    height: 800px;
+    background-color: var(--main-bg-color);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    margin: 30px auto;
+    font-family: "Nunito", sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
 
-    #page1 {
-      width: 100%;
-      height: 100%;
-      padding: 20px;
-      z-index: 2;
-    }
+  .page {
+    flex-direction: column;
+    align-content: center;
+    display: none;
+  }
 
-    .title1,
-    .title {
-      text-align: center;
-      font-size: 3rem;
-      font-weight: 800;
-      padding: 30px 10px;
-    }
+  #page1 {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    z-index: 2;
+    display: block;
+    /* display: none; */
+  }
 
-    .title {
-      padding: 10px 10px;
-      font-size: 2.3rem;
-    }
+  #info-form-page {
+    display: none;
+    /* display: flex; */
+  }
 
-    .subtitle {
-      color: var(--second-txt-color);
-      font-size: 4rem;
-      font-weight: 700;
-      padding: 3px 30px;
-      margin: 10px auto 0;
-      border: 1px solid var(--main-shape-color);
-      display: inline-block;
-      border-radius: 30px;
-    }
-    /* shapes  */
+  #info-form-page-2 {
+    /* display: none; */
+    /* display: flex; */
+  }
 
-    .shape {
-      position: absolute;
-      background-size: contain;
-      border-radius: 50%;
-      width: 50vw;
-      height: 50vw;
-      transition: ease-in-out 0.5s;
-      z-index: 1;
-    }
+  #info-form-page-3 {
+    display: none;
+  }
 
-    .shape3:hover,
-    .shape4:hover {
-      -webkit-transform: rotate(5deg);
-      -moz-transform: rotate(5deg);
-      -ms-transform: rotate(5deg);
-      -o-transform: rotate(5deg);
-      transform: rotate(5deg);
-    }
+  .title1,
+  .title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    padding: 30px 10px;
+  }
 
-    .shape1:hover {
-      transform: scale(1.03);
-    }
+  .title {
+    padding: 10px 10px;
+    font-size: 2.3rem;
+  }
 
-    .shape1 {
-      max-height: 400px;
-      max-width: 400px;
-      background-image: url("https://s3-eu-west-1.amazonaws.com/salesmanagoimg/36ah1dxt6fpehf53/bz0skjq3it4c2v3k/q6wm0egopzkdz7k9.png");
-      right: -140px;
-      top: 20px;
-      opacity: 0.4;
-    }
+  .subtitle {
+    color: var(--second-txt-color);
+    font-size: 4rem;
+    font-weight: 700;
+    padding: 3px 30px;
+    margin: 10px auto 0;
+    border: 1px solid var(--main-shape-color);
+    display: inline-block;
+    border-radius: 30px;
+  }
 
-    .shape2 {
-      max-height: 100px;
-      max-width: 100px;
-      background-color: var(--main-shape-color);
-      right: 40px;
-      top: -10px;
-      opacity: 0.2;
-    }
+  /* shapes  */
 
-    .shape3 {
-      max-height: 150px;
-      max-width: 150px;
-      background-color: var(--main-shape-color);
-      background-image: url("https://s3-eu-west-1.amazonaws.com/salesmanagoimg/36ah1dxt6fpehf53/bz0skjq3it4c2v3k/lt0rwnpszkf17vfi.png");
-      left: 100px;
-      top: -50px;
-      opacity: 0.5;
-    }
+  .shape {
+    position: absolute;
+    background-size: contain;
+    border-radius: 50%;
+    width: 50vw;
+    height: 50vw;
+    transition: ease-in-out 0.5s;
+    z-index: 1;
+  }
 
-    .shape4 {
-      max-height: 300px;
-      max-width: 300px;
-      background-image: url("https://s3-eu-west-1.amazonaws.com/salesmanagoimg/36ah1dxt6fpehf53/bz0skjq3it4c2v3k/lt0rwnpszkf17vfi.png");
-      left: -70px;
-      bottom: -80px;
-      opacity: 0.5;
-    }
+  .shape3:hover {
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
 
-    .shape5 {
-      max-height: 70px;
-      max-width: 70px;
-      background-color: var(--main-shape-color);
-      left: 50px;
-      top: 80px;
-      opacity: 0.2;
-    }
+  .shape1:hover {
+    transform: scale(1.03);
+  }
 
-    .page-box {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .shape1 {
+    max-height: 400px;
+    max-width: 400px;
+    background-image: url("https://s3-eu-west-1.amazonaws.com/salesmanagoimg/36ah1dxt6fpehf53/bz0skjq3it4c2v3k/q6wm0egopzkdz7k9.png");
+    right: -140px;
+    top: 20px;
+    opacity: 0.4;
+  }
 
-    .page-box-row {
-      flex-direction: row;
-      justify-content: center;
-    }
+  .shape2 {
+    max-height: 100px;
+    max-width: 100px;
+    background-color: var(--main-shape-color);
+    right: 40px;
+    top: -10px;
+    opacity: 0.2;
+  }
 
-    .page-box-label {
-      position: relative;
-    }
+  .shape3 {
+    max-height: 150px;
+    max-width: 150px;
+    background-color: var(--main-shape-color);
+    background-image: url("https://s3-eu-west-1.amazonaws.com/salesmanagoimg/36ah1dxt6fpehf53/bz0skjq3it4c2v3k/lt0rwnpszkf17vfi.png");
+    left: 100px;
+    top: -50px;
+    opacity: 0.5;
+  }
 
-    /* radio buttons  */
+  .shape4 {
+    max-height: 300px;
+    max-width: 300px;
+    background-image: url("https://s3-eu-west-1.amazonaws.com/salesmanagoimg/36ah1dxt6fpehf53/bz0skjq3it4c2v3k/lt0rwnpszkf17vfi.png");
+    left: -70px;
+    bottom: -80px;
+    opacity: 0.5;
+  }
 
-    .radio-box,
-    .radio-box-form,
-    .radio-box-email,
-    .radio-box-email-resp {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-      padding: 1.3rem;
-      background-color: var(--main-box-color);
-      border-radius: 24px;
-      height: 48px;
-      min-width: 150px;
-      text-align: center;
-      cursor: pointer;
-    }
+  .shape5 {
+    max-height: 70px;
+    max-width: 70px;
+    background-color: var(--main-shape-color);
+    left: 50px;
+    top: 80px;
+    opacity: 0.2;
+  }
 
-    .project-type,
-    .form-type,
-    .email-type,
-    .email-resp {
-      width: 1px;
-      visibility: hidden;
-    }
+  .page-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .radio-info-span {
-      font-size: 1.4rem;
-      font-weight: 400;
-      display: block;
-    }
+  .page-box-row {
+    flex-direction: row;
+    justify-content: center;
+  }
 
-    .radio-box-form,
-    .radio-box-email,
-    .radio-box-email-resp {
-      font-weight: 600;
-      font-size: 1.7rem;
-      height: 68px;
-      border-radius: 34px;
-      min-width: 240px;
-    }
+  .page-box-label {
+    position: relative;
+  }
 
-    .radio-box-email-resp {
-      height: 48px;
-      border-radius: 24px;
-      min-width: 80px;
-      margin-right: 1rem;
-    }
+  /* next prev  */
 
-    /* inputs  */
+  .next-prev__box {
+    position: absolute;
+    background-size: contain;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 5;
+    height: 50px;
+    max-width: 100%;
+    left: 5%;
+    bottom: 20px;
+    opacity: 1;
+  }
 
-    .input-email,
-    .form-email {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-      padding: 1.3rem 3rem;
-      background-color: var(--main-bg-color);
-      border: 1px solid var(--second-txt-color);
-      border-radius: 24px;
-      height: 48px;
-      min-width: 300px;
-      width: 50%;
-      text-align: left;
-      cursor: pointer;
-    }
+  .next-prev {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    transition: ease-in-out 0.5s;
+    background-color: var(--main-accent-color);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 
-    /* button  */
+  #prev {
+    background-image: url("https://s-img.s3-eu-west-1.amazonaws.com/jxdhud3ai6lcsalo.png");
 
-    .button-next {
-      width: 50px;
-      height: 50px;
-      right: -60px;
-      top: 0;
-      background-color: var(--main-shape-color);
-      position: absolute;
-      border-radius: 50%;
-      background-image: url("https://s3-eu-west-1.amazonaws.com/salesmanagoimg/36ah1dxt6fpehf53/bz0skjq3it4c2v3k/x2d6c8d5gp2qnz2m.png");
-      background-position: center;
-      background-size: 70%;
-      background-repeat: no-repeat;
-      transition: ease-in-out 0.5s;
-    }
+  }
 
-    .button-next:hover {
-      background-position: 80%;
-      cursor: pointer;
-    }
-  </style>
-  <body>
-    <div id="wrapper">
-      <div class="shape1 shape"></div>
-      <div class="shape2 shape"></div>
-      <div class="shape3 shape"></div>
-      <div class="shape4 shape"></div>
-      <div class="shape5 shape"></div>
-      <!-- page 1  -->
-      <div id="page1">
-        <p class="title1">
-          * wybierz rodzaj projektu
-        </p>
-        <div class="page-box">
-          <label for="info-email" class="page-box-label">
-            <div class="radio-box">
-              <input
-                type="radio"
-                id="info-email"
-                name="project-type"
-                class="project-type"
-              />
-              <span class="radio-span">email</span>
-            </div>
-          </label>
-          <label for="info-form" class="page-box-label">
-            <div class="radio-box">
-              <input
-                type="radio"
-                id="info-form"
-                name="project-type"
-                class="project-type"
-              />
-              <span class="radio-span"> formularz</span>
-            </div>
-          </label>
-          <label for="info-popup" class="page-box-label">
-            <div class="radio-box">
-              <input
-                type="radio"
-                id="info-popup"
-                name="project-type"
-                class="project-type"
-              />
-              <span class="radio-span"> pop-up</span>
-            </div>
-          </label>
-          <label for="info-lp" class="page-box-label">
-            <div class="radio-box">
-              <input
-                type="radio"
-                id="info-lp"
-                name="project-type"
-                class="project-type"
-              />
-              <span class="radio-span">landing page</span>
-            </div>
-          </label>
-          <label for="info-sidebar" class="page-box-label">
-            <div class="radio-box">
-              <input
-                type="radio"
-                id="info-sidebar"
-                name="project-type"
-                class="project-type"
-              />
-              <span class="radio-span">sidebar</span>
-            </div>
-          </label>
-          <label for="info-socialproof" class="page-box-label">
-            <div class="radio-box">
-              <input
-                type="radio"
-                id="info-socialproof"
-                name="project-type"
-                class="project-type"
-              />
-              <span class="radio-span"> social-proof</span>
-            </div>
-          </label>
-          <label for="info-koncepcja" class="page-box-label">
-            <div class="radio-box">
-              <input
-                type="radio"
-                id="info-koncepcja"
-                name="project-type"
-                class="project-type"
-              />
-              <span class="radio-span">koncepcja</span>
-            </div>
-          </label>
-          <label for="info-poprawka" class="page-box-label">
-            <div class="radio-box">
-              <input
-                type="radio"
-                id="info-poprawka"
-                name="project-type"
-                class="project-type"
-              />
-              <span class="radio-span">poprawka</span>
-            </div>
-          </label>
-          <!-- <div class="button-next" id="button-page1"></div> -->
-        </div>
-      </div>
-      <!-- form  -->
-      <div id="info-form-page" class="page">
-        <p class="subtitle">form</p>
-        <p class="title">
-          * wybierz rodzaj formularza
-        </p>
-        <div class="page-box">
-          <label for="info-easy">
-            <div class="radio-box-form">
-              <input
-                type="radio"
-                id="info-easy"
-                name="form-type"
-                class="form-type"
-              />
-              <span class="radio-span">łatwy</span>
-              <span class="radio-info-span">imię + email and that's it! </span>
-            </div>
-          </label>
-          <label for="info-not-easy">
-            <div class="radio-box-form">
-              <input
-                type="radio"
-                id="info-not-easy"
-                name="form-type"
-                class="form-type"
-              />
+  #prev:hover {
+    -webkit-transform: translateX(-10px);
+    -moz-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    -o-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
 
-              <span class="radio-span">bardziej skomplikowany</span>
-              <span class="radio-info-span"
-                >data / rozmiar buta / firma / select</span
-              >
-            </div>
-          </label>
-          <label for="info-questionnaire">
-            <div class="radio-box-form">
-              <input
-                type="radio"
-                id="info-questionnaire"
-                name="form-type"
-                class="form-type"
-              />
+  #next {
+    background-image: url("https://s3-eu-west-1.amazonaws.com/salesmanagoimg/36ah1dxt6fpehf53/bz0skjq3it4c2v3k/x2d6c8d5gp2qnz2m.png");
 
-              <span class="radio-span">ankieta</span>
-              <span class="radio-info-span"
-                >dużo pytań / wielokrotny wybór</span
-              >
-            </div>
-          </label>
-        </div>
-        <p class="title">
-          jaką ma mieć nazwę w systemie
-        </p>
-        <div class="page-box">
-          <input
-            type="text"
-            class="form-email"
-            id="input-form-name"
-            placeholder="nazwa"
-          />
-        </div>
-      </div>
-      <!-- email  -->
-      <div id="info-email-page" class="page">
-        <p class="subtitle">email</p>
-        <p class="title">
-          * wybierz rodzaj szablonu
-        </p>
-        <div class="page-box">
-          <label for="info-easy-mail">
-            <div class="radio-box-email">
-              <input
-                type="radio"
-                id="info-easy-mail"
-                name="email-type"
-                class="email-type"
-              />
-              <span class="radio-span">łatwy</span>
-              <span class="radio-info-span">logo / baner / text / button </span>
-            </div>
-          </label>
-          <label for="dinamic">
-            <div class="radio-box-email">
-              <input
-                type="radio"
-                id="dinamic"
-                name="email-type"
-                class="email-type"
-              />
+  }
 
-              <span class="radio-span">dynamiczny</span>
-              <span class="radio-info-span">produktowy</span>
-            </div>
-          </label>
-          <label for="edit">
-            <div class="radio-box-email">
-              <input
-                type="radio"
-                id="edit"
-                name="email-type"
-                class="email-type"
-              />
+  #next:hover {
+    -webkit-transform: translateX(10px);
+    -moz-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    -o-transform: translateX(10px);
+    transform: translateX(10px);
+  }
 
-              <span class="radio-span">edytowalny</span>
-              <span class="radio-info-span"
-                >text / banery / obrazki - do edycji</span
-              >
-            </div>
-          </label>
-        </div>
-        <p class="title">
-          jaką ma mieć nazwę w systemie
-        </p>
-        <div class="page-box">
-          <input
-            type="text"
-            class="input-email"
-            id="input-email-name"
-            placeholder="nazwa"
-          />
-        </div>
-        <p class="title">
-          temat wiadomości
-        </p>
-        <div class="page-box">
-          <input
-            type="text"
-            class="input-email"
-            id="input-email-title"
-            placeholder="tytuł"
-          />
-        </div>
-        <p class="title">
-          czy ma być responsywny
-        </p>
-        <div class="page-box page-box-row">
-          <label for="info-resp-mail">
-            <div class="radio-box-email-resp">
-              <input
-                type="radio"
-                id="info-resp-mail"
-                name="email-resp"
-                class="email-resp"
-              />
-              <span class="radio-span">tak!</span>
-            </div>
-          </label>
-          <label for="info-notresp-mail">
-            <div class="radio-box-email-resp">
-              <input
-                type="radio"
-                id="info-notresp-mail"
-                name="email-resp"
-                class="email-resp"
-              />
-              <span class="radio-span">nie</span>
-            </div>
-          </label>
-        </div>
-      </div>
-      <!-- popup  -->
-      <div id="info-popup-page" class="page">
-        <p class="title">
-          pop-up
-        </p>
-      </div>
-      <div id="info-lp-page" class="page">
-        <p class="title">
-          landing page
-        </p>
-      </div>
-      <div id="info-sidebar-page" class="page">
-        <p class="title">
-          sidebar
-        </p>
-      </div>
-      <div id="info-socialproof-page" class="page">
-        <p class="title">
-          social proof
-        </p>
-      </div>
-      <div id="info-koncepcja-page" class="page">
-        <p class="title">
-          koncepcja
-        </p>
-      </div>
-      <div id="info-poprawka-page" class="page">
-        <p class="title">
-          poprawka
-        </p>
+  /* radio buttons  */
+
+  .radio-box,
+  .radio-box-form,
+  .radio-box-email,
+  .radio-box-email-resp {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    padding: 1.3rem;
+    background-color: var(--main-box-color);
+    border: 1px solid var(--main-box-color);
+    border-radius: 24px;
+    height: 48px;
+    min-width: 150px;
+    text-align: center;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+  }
+
+  .radio-box:hover {
+    border: 1px solid var(--main-accent-color);
+
+  }
+
+  .project-type,
+  .form-type,
+  .email-type,
+  .email-resp {
+    width: 1px;
+    visibility: hidden;
+  }
+
+  .radio-info-span {
+    font-size: 1.4rem;
+    font-weight: 400;
+    display: block;
+  }
+
+  .radio-box-form,
+  .radio-box-email,
+  .radio-box-email-resp {
+    font-weight: 600;
+    font-size: 1.7rem;
+    height: 68px;
+    border-radius: 34px;
+    min-width: 240px;
+  }
+
+  .radio-box-email-resp {
+    height: 48px;
+    border-radius: 24px;
+    min-width: 80px;
+    margin-right: 1rem;
+  }
+
+  /* inputs  */
+
+
+  .input {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    padding: 1.3rem 3rem;
+    background-color: var(--main-bg-color);
+    border: 1px solid var(--second-txt-color);
+    border-radius: 24px;
+    height: 48px;
+    min-width: 300px;
+    width: 50%;
+    text-align: left;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+    outline: none;
+
+  }
+
+  .input:focus {
+    border: 1px solid var(--main-accent-color);
+  }
+
+  /* button  */
+
+  .button-next {
+    width: 50px;
+    height: 50px;
+    right: -60px;
+    top: 0;
+    background-color: var(--main-shape-color);
+    position: absolute;
+    border-radius: 50%;
+    background-image: url("https://s3-eu-west-1.amazonaws.com/salesmanagoimg/36ah1dxt6fpehf53/bz0skjq3it4c2v3k/x2d6c8d5gp2qnz2m.png");
+    background-position: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    transition: ease-in-out 0.5s;
+  }
+
+  .button-next:hover {
+    background-position: 80%;
+    cursor: pointer;
+  }
+
+  /* validation  */
+
+  .validation-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .input-validation {
+    margin-right: 1rem;
+  }
+</style>
+
+<body>
+  <div id="wrapper">
+    <div class="next-prev__box">
+      <div id="prev" class="next-prev"></div>
+      <div id="next" class="next-prev"></div>
+    </div>
+    <div class="shape1 shape"></div>
+    <div class="shape2 shape"></div>
+    <div class="shape3 shape"></div>
+    <div class="shape4 shape"></div>
+    <div class="shape5 shape"></div>
+
+    <!-- page 1  -->
+    <div id="page1">
+      <p class="title1">
+        * wybierz rodzaj projektu
+      </p>
+      <div class="page-box">
+        <label for="info-email" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-email" name="project-type" class="project-type" />
+            <span class="radio-span">email</span>
+          </div>
+        </label>
+        <label for="info-form" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-form" name="project-type" class="project-type" />
+            <span class="radio-span"> formularz</span>
+          </div>
+        </label>
+        <label for="info-popup" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-popup" name="project-type" class="project-type" />
+            <span class="radio-span"> pop-up</span>
+          </div>
+        </label>
+        <label for="info-lp" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-lp" name="project-type" class="project-type" />
+            <span class="radio-span">landing page</span>
+          </div>
+        </label>
+        <label for="info-sidebar" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-sidebar" name="project-type" class="project-type" />
+            <span class="radio-span">sidebar</span>
+          </div>
+        </label>
+        <label for="info-socialproof" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-socialproof" name="project-type" class="project-type" />
+            <span class="radio-span"> social-proof</span>
+          </div>
+        </label>
+        <label for="info-koncepcja" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-koncepcja" name="project-type" class="project-type" />
+            <span class="radio-span">koncepcja</span>
+          </div>
+        </label>
+        <label for="info-poprawka" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="info-poprawka" name="project-type" class="project-type" />
+            <span class="radio-span">poprawka</span>
+          </div>
+        </label>
+        <!-- <div class="button-next" id="button-page1"></div> -->
       </div>
     </div>
-    <script>
-      // radio buttons page 1
-      let radioBox = document.getElementsByClassName("radio-box");
-      let projectType = document.getElementsByClassName("project-type");
-      let projectTypeArray = [];
-      console.log("wszytskie inputy:");
-      console.log(projectType);
+    <!-- form  -->
+    <div id="info-form-page" class="page">
+      <p class="subtitle">form</p>
+      <p class="title">
+        * wybierz rodzaj formularza
+      </p>
+      <div class="page-box">
+        <label for="info-easy">
+          <div class="radio-box-form radio-box">
+            <input type="radio" id="info-easy" name="form-type" class="form-type" />
+            <span class="radio-span">łatwy</span>
+            <span class="radio-info-span">imię + email and that's it! </span>
+          </div>
+        </label>
+        <label for="info-not-easy">
+          <div class="radio-box-form radio-box">
+            <input type="radio" id="info-not-easy" name="form-type" class="form-type" />
+            <span class="radio-span">bardziej skomplikowany</span>
+            <span class="radio-info-span">data / rozmiar buta / firma / select</span>
+          </div>
+        </label>
+        <label for="info-questionnaire">
+          <div class="radio-box-form radio-box">
+            <input type="radio" id="info-questionnaire" name="form-type" class="form-type" />
 
-      for (let i = 0; i < projectType.length; i++) {
-        console.log(projectType[i]);
-        projectType[i].addEventListener("click", (event) => {
-          projectTypeArray.push(projectType[i]);
+            <span class="radio-span">ankieta</span>
+            <span class="radio-info-span">dużo pytań / wielokrotny wybór</span>
+          </div>
+        </label>
+      </div>
 
-          // create button with attributes
-          let btn = document.createElement("div");
+    </div>
+    <!-- email  -->
+    <div id="info-email-page" class="page">
+      <p class="subtitle">email</p>
+      <p class="title">
+        * wybierz rodzaj szablonu
+      </p>
+      <div class="page-box">
+        <label for="info-easy-mail">
+          <div class="radio-box-email">
+            <input type="radio" id="info-easy-mail" name="email-type" class="email-type" />
+            <span class="radio-span">łatwy</span>
+            <span class="radio-info-span">logo / baner / text / button </span>
+          </div>
+        </label>
+        <label for="dinamic">
+          <div class="radio-box-email">
+            <input type="radio" id="dinamic" name="email-type" class="email-type" />
 
-          btn.setAttribute("id", "button-page1");
-          btn.setAttribute("class", "button-next");
+            <span class="radio-span">dynamiczny</span>
+            <span class="radio-info-span">produktowy</span>
+          </div>
+        </label>
+        <label for="edit">
+          <div class="radio-box-email">
+            <input type="radio" id="edit" name="email-type" class="email-type" />
 
-          if (projectType[i].checked == true) {
-            for (let j = 0; j < projectTypeArray.length; j++) {
-              if (projectTypeArray[j].checked == false) {
-                projectTypeArray[j].parentElement.style.backgroundColor =
-                  "#f4f4f4";
+            <span class="radio-span">edytowalny</span>
+            <span class="radio-info-span">text / banery / obrazki - do edycji</span>
+          </div>
+        </label>
+        <label for="psd">
+          <div class="radio-box-email">
+            <input type="radio" id="psd" name="email-type" class="email-type" />
 
-                // remove btn
-                projectTypeArray[
-                  j
-                ].parentElement.parentElement.lastChild.style.display = "none";
-              }
+            <span class="radio-span">z PSD</span>
+            <span class="radio-info-span">złożony z posiętych grafik</span>
+          </div>
+        </label>
+      </div>
+      <p class="title">
+        jaką ma mieć nazwę w systemie
+      </p>
+      <div class="page-box">
+        <input type="text" class="input" id="input-name" placeholder="nazwa" />
+      </div>
+      <p class="title">
+        temat wiadomości
+      </p>
+      <div class="page-box">
+        <input type="text" class="input" id="input-title" placeholder="tytuł" />
+      </div>
+      <p class="title">
+        czy ma być responsywny
+      </p>
+      <div class="page-box page-box-row">
+        <label for="info-resp-mail">
+          <div class="radio-box-email-resp">
+            <input type="radio" id="info-resp-mail" name="email-resp" class="email-resp" />
+            <span class="radio-span">tak!</span>
+          </div>
+        </label>
+        <label for="info-notresp-mail">
+          <div class="radio-box-email-resp">
+            <input type="radio" id="info-notresp-mail" name="email-resp" class="email-resp" />
+            <span class="radio-span">nie</span>
+          </div>
+        </label>
+      </div>
+    </div>
+    <!-- popup  -->
+    <div id="info-popup-page" class="page">
+      <p class="title">
+        pop-up
+      </p>
+    </div>
+    <!-- lp  -->
+    <div id="info-lp-page" class="page">
+      <p class="title">
+        landing page
+      </p>
+    </div>
+    <!-- sidebar  -->
+    <div id="info-sidebar-page" class="page">
+      <p class="title">
+        sidebar
+      </p>
+    </div>
+    <!-- social proof  -->
+    <div id="info-socialproof-page" class="page">
+      <p class="title">
+        social proof
+      </p>
+    </div>
+    <!-- koncepcja page  -->
+    <div id="info-koncepcja-page" class="page">
+      <p class="title">
+        koncepcja
+      </p>
+    </div>
+    <!-- poprawka page  -->
+    <div id="info-poprawka-page" class="page">
+      <p class="title">
+        poprawka
+      </p>
+    </div>
+    <!-- ///////////////// next step //////////////// -->
+    <!-- form 2  -->
+    <div id="info-form-page-2" class="page">
+      <p class="subtitle">form</p>
+
+      <p class="title">
+        pobierane dane
+      </p>
+      <div class="validation-box">
+
+        <input type="text" class="input input-validation" id="input-form-data-1" placeholder="email ?" />
+
+        <label for="required-input-form-data-1" class="page-box-label">
+          <div class="radio-box">
+            <input type="radio" id="required-input-form-data-1" name="project-type" class="project-type" />
+            <span class="radio-span">wymagane</span>
+          </div>
+        </label>
+      </div>
+
+
+      <div class="page-box">
+        <input type="text" class="input" id="input-form-data-2" placeholder="imię ?" />
+      </div>
+
+      <div class="page-box">
+        <input type="text" class="input" id="input-form-data-3" placeholder="coś innego ?" />
+      </div>
+    </div>
+    <!-- form 3  -->
+    <div id="info-form-page-3" class="page">
+      <p class="subtitle">form</p>
+
+      <p class="title">
+        jaką ma mieć nazwę w systemie
+      </p>
+      <div class="page-box">
+        <input type="text" class="input" id="input-form-name" placeholder="nazwa" />
+      </div>
+      <p class="title">
+        tag 1
+      </p>
+      <div class="page-box">
+        <input type="text" class="input" id="input-form-name" placeholder="tag 1" />
+      </div>
+      <p class="title">
+        tag 2
+      </p>
+      <div class="page-box">
+        <input type="text" class="input" id="input-form-name" placeholder="tag 2" />
+      </div>
+    </div>
+  </div>
+  <script>
+    const nextButton = document.getElementById("next");
+    const prevButton = document.getElementById("prev");
+
+
+  </script>
+  <!-- <script>
+    // radio buttons page 1
+    let radioBox = document.getElementsByClassName("radio-box");
+    let projectType = document.getElementsByClassName("project-type");
+    let projectTypeArray = [];
+    console.log("wszytskie inputy:");
+    console.log(projectType);
+
+    for (let i = 0; i < projectType.length; i++) {
+      console.log(projectType[i]);
+      projectType[i].addEventListener("click", () => {
+        projectTypeArray.push(projectType[i]);
+
+        // create button with attributes
+        let btn = document.createElement("div");
+
+        btn.setAttribute("id", "button-page1");
+        btn.setAttribute("class", "button-next");
+
+        if (projectType[i].checked == true) {
+          for (let j = 0; j < projectTypeArray.length; j++) {
+            if (projectTypeArray[j].checked == false) {
+              projectTypeArray[j].parentElement.style.backgroundColor =
+                "#f4f4f4";
+
+              // remove btn
+              projectTypeArray[
+                j
+              ].parentElement.parentElement.lastChild.style.display = "none";
             }
-
-            console.log("element clicked: ");
-            console.log(projectTypeArray[i]);
-            console.log("parent element clicked: ");
-            console.log(projectTypeArray[i].parentElement);
-            // change color to green
-            let parent = projectType[i].parentElement;
-            parent.style.backgroundColor = "#d2e0d2";
-            // add button
-            projectTypeArray[i].parentElement.parentElement.appendChild(btn);
-
-            console.log(btn);
-            btn.addEventListener("click", skipToNextPage);
           }
-        });
-      }
 
-      // button
-      let buttonPage1 = document.getElementById("button-page1");
-      let page1 = document.getElementById("page1");
+          console.log("element clicked: ");
+          console.log(projectTypeArray[i]);
+          console.log("parent element clicked: ");
+          console.log(projectTypeArray[i].parentElement);
+          // change color to green
+          let parent = projectType[i].parentElement;
+          parent.style.backgroundColor = "#d2e0d2";
+          // add button
+          projectTypeArray[i].parentElement.parentElement.appendChild(btn);
 
-      function skipToNextPage(event) {
-        for (let i = 0; i < projectType.length; i++) {
-          if (projectType[i].checked == true) {
-            // create page id
-            let pageId = projectType[i].id + "-page";
-            console.log(pageId);
-            let page2 = document.getElementById(pageId);
-            console.log(page2);
-            page1.style.display = "none";
-            page2.style.display = "flex";
-          }
+          console.log(btn);
+          btn.addEventListener("click", skipToNextPage);
+        }
+      });
+    }
+
+    // button
+    let buttonPage1 = document.getElementById("button-page1");
+    let page1 = document.getElementById("page1");
+
+    function skipToNextPage(event) {
+      for (let i = 0; i < projectType.length; i++) {
+        if (projectType[i].checked == true) {
+          // create page id
+          let pageId = projectType[i].id + "-page";
+          console.log(pageId);
+          let page2 = document.getElementById(pageId);
+          console.log(page2);
+          page1.style.display = "none";
+          page2.style.display = "flex";
         }
       }
+    }
 
-      // radio buttons form
-      let radioBoxForm = document.getElementsByClassName("radio-box-form");
-      let formType = document.getElementsByClassName("form-type");
-      let formTypeArray = [];
+    // radio buttons form
+    let radioBoxForm = document.getElementsByClassName("radio-box-form");
+    let formType = document.getElementsByClassName("form-type");
+    let formTypeArray = [];
 
-      for (let i = 0; i < formType.length; i++) {
-        formType[i].addEventListener("click", (event) => {
-          formTypeArray.push(formType[i]);
+    for (let i = 0; i < formType.length; i++) {
+      formType[i].addEventListener("click", (event) => {
+        formTypeArray.push(formType[i]);
 
-          if (formType[i].checked == true) {
-            for (let j = 0; j < formTypeArray.length; j++) {
-              if (formTypeArray[j].checked == false) {
-                formTypeArray[j].parentElement.style.backgroundColor =
-                  "#f4f4f4";
-              }
+        if (formType[i].checked == true) {
+          for (let j = 0; j < formTypeArray.length; j++) {
+            if (formTypeArray[j].checked == false) {
+              formTypeArray[j].parentElement.style.backgroundColor =
+                "#f4f4f4";
             }
-
-            let parent = formType[i].parentElement;
-            parent.style.backgroundColor = "#d2e0d2";
           }
-        });
-      }
 
-      // radio buttons email
-      let radioBoxEmail = document.getElementsByClassName("radio-box-email");
-      let emailType = document.getElementsByClassName("email-type");
-      let emailTypeArray = [];
+          let parent = formType[i].parentElement;
+          parent.style.backgroundColor = "#d2e0d2";
+        }
+      });
+    }
 
-      for (let i = 0; i < emailType.length; i++) {
-        emailType[i].addEventListener("click", (event) => {
-          emailTypeArray.push(emailType[i]);
+    // radio buttons email
+    let radioBoxEmail = document.getElementsByClassName("radio-box-email");
+    let emailType = document.getElementsByClassName("email-type");
+    let emailTypeArray = [];
 
-          if (emailType[i].checked == true) {
-            for (let j = 0; j < emailTypeArray.length; j++) {
-              if (emailTypeArray[j].checked == false) {
-                emailTypeArray[j].parentElement.style.backgroundColor =
-                  "#f4f4f4";
-              }
+    for (let i = 0; i < emailType.length; i++) {
+      emailType[i].addEventListener("click", (event) => {
+        emailTypeArray.push(emailType[i]);
+
+        if (emailType[i].checked == true) {
+          for (let j = 0; j < emailTypeArray.length; j++) {
+            if (emailTypeArray[j].checked == false) {
+              emailTypeArray[j].parentElement.style.backgroundColor =
+                "#f4f4f4";
             }
-
-            let parent = emailType[i].parentElement;
-            parent.style.backgroundColor = "#d2e0d2";
           }
-        });
-      }
 
-      // radio buttons email - respons
-      let radioBoxResp = document.getElementsByClassName(
-        "radio-box-email-resp"
-      );
-      let emailRespo = document.getElementsByClassName("email-resp");
-      let emailRespoArray = [];
+          let parent = emailType[i].parentElement;
+          parent.style.backgroundColor = "#d2e0d2";
+        }
+      });
+    }
 
-      for (let i = 0; i < emailRespo.length; i++) {
-        emailRespo[i].addEventListener("click", (event) => {
-          emailRespoArray.push(emailRespo[i]);
+    // radio buttons email - respons
+    let radioBoxResp = document.getElementsByClassName(
+      "radio-box-email-resp"
+    );
+    let emailRespo = document.getElementsByClassName("email-resp");
+    let emailRespoArray = [];
 
-          if (emailRespo[i].checked == true) {
-            for (let j = 0; j < emailRespoArray.length; j++) {
-              if (emailRespoArray[j].checked == false) {
-                emailRespoArray[j].parentElement.style.backgroundColor =
-                  "#f4f4f4";
-              }
+    for (let i = 0; i < emailRespo.length; i++) {
+      emailRespo[i].addEventListener("click", (event) => {
+        emailRespoArray.push(emailRespo[i]);
+
+        if (emailRespo[i].checked == true) {
+          for (let j = 0; j < emailRespoArray.length; j++) {
+            if (emailRespoArray[j].checked == false) {
+              emailRespoArray[j].parentElement.style.backgroundColor =
+                "#f4f4f4";
             }
-
-            let parent = emailRespo[i].parentElement;
-            parent.style.backgroundColor = "#d2e0d2";
           }
-        });
-      }
-    </script>
-  </body>
+
+          let parent = emailRespo[i].parentElement;
+          parent.style.backgroundColor = "#d2e0d2";
+        }
+      });
+    }
+  </script> -->
+</body>
+
 </html>
