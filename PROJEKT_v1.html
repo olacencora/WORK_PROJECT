@@ -173,6 +173,14 @@
     position: relative;
   }
 
+  .mail-type {
+    /* display: none; */
+  }
+
+  .radio-box:has(>.mail-type:checked) {
+    background-color: var(--main-accent-color);
+  }
+
   /* ////////////////////////// INPUTS //////////////////////// */
 
   .input-box {
@@ -263,13 +271,64 @@
       </div>
     </section>
     <section class="section column-center" id="section-1">
+      <h2 class="title"> * oceń trudność projektu: email</h2>
+      <div class="page-box">
+        <label for="info-easy">
+          <div class="radio-box-mail radio-box">
+            <input type="radio" id="info-easy" name="mail-type" class="mail-type" />
+            <span class="radio-span">łatwy</span>
+            <span class="radio-info-span">logo + baner + text </span>
+          </div>
+        </label>
+        <label for="info-dinamic">
+          <div class="radio-box-mail radio-box">
+            <input type="radio" id="info-dinamic" name="mail-type" class="mail-type" />
+            <span class="radio-span">dynamiczny</span>
+            <span class="radio-info-span">z produktami</span>
+          </div>
+        </label>
+        <label for="info-edit">
+          <div class="radio-box-mail radio-box">
+            <input type="radio" id="info-edit" name="mail-type" class="mail-type" />
+            <span class="radio-span">edytowalny</span>
+            <span class="radio-info-span">do edycji przez klienta</span>
+          </div>
+        </label>
+        <label for="info-psd">
+          <div class="radio-box-mail radio-box">
+            <input type="radio" id="info-psd" name="mail-type" class="mail-type" />
+            <span class="radio-span">z PSD</span>
+            <span class="radio-info-span">do pocięcia</span>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="section column-center" id="section-2">
       <h2 class="title"> * nazwa na koncie klienta</h2>
       <div class="input-box column-center">
         <input type=" text" class="input" id="input-name" placeholder="nazwa" />
       </div>
     </section>
 
+    <script>
+      const projectType = Array.from(document.getElementsByClassName("project-type"));
 
+      const mailType = Array.from(document.getElementsByClassName("mail-type"));
+
+
+      // change background color in radio button on click
+
+      function changeBgInRadioButton(array) {
+        console.log(array);
+        array.forEach((el, i) => {
+          array[i].addEventListener("click", () => {
+            array[i].parentElement.style.backgroundColor = "var(--main-accent-color)";
+          })
+        })
+      }
+
+      changeBgInRadioButton(projectType)
+    </script>
 </body>
 
 </html>
