@@ -565,22 +565,17 @@
         arrayProjectType.forEach((element, k) => {
           console.log("tst");
           arrayProjectType[k].addEventListener("click", () => {
-            console.log("projekct type is:", arrayProjectType[k]);
 
-            let idOfProjectType = arrayProjectType[k].id;
+            let textOfProjectType = arrayProjectType[k].id.substr(5);
 
-            console.log("element id: ", idOfProjectType);
-            let type = idOfProjectType.substr(5);
-
-            console.log(type)
-            // console.log("type: ", arrayProjectType[k].id.subst(5))
+            console.log(textOfProjectType)
 
 
 
             let titleOfSection1 = document.getElementById("section-1").children[0];
             console.log("title: ", titleOfSection1);
 
-            titleOfSection1.innerHTML = "test"
+            titleOfSection1.innerHTML = "* oceń trudność projektu: " + textOfProjectType
 
           })
         })
