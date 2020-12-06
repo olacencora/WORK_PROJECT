@@ -323,7 +323,7 @@
 
       </div>
     </section>
-    <section class="section column-center" id="section-1-a">
+    <section class="section column-center" id="section-1">
       <h2 class="title"> * oceń trudność projektu: email</h2>
       <div class="page-box">
         <label for="info-easy">
@@ -557,11 +557,32 @@
       changeBgInRadioButton(mailType);
       changeBgInRadioButton(mailProductsInRow);
 
+
+
       // create section 1 - difficoult of project 
 
       function createSection1(arrayProjectType) {
         arrayProjectType.forEach((element, k) => {
-          console.log("tst")
+          console.log("tst");
+          arrayProjectType[k].addEventListener("click", () => {
+            console.log("projekct type is:", arrayProjectType[k]);
+
+            let idOfProjectType = arrayProjectType[k].id;
+
+            console.log("element id: ", idOfProjectType);
+            let type = idOfProjectType.substr(5);
+
+            console.log(type)
+            // console.log("type: ", arrayProjectType[k].id.subst(5))
+
+
+
+            let titleOfSection1 = document.getElementById("section-1").children[0];
+            console.log("title: ", titleOfSection1);
+
+            titleOfSection1.innerHTML = "test"
+
+          })
         })
       }
 
