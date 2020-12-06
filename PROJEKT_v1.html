@@ -210,6 +210,11 @@
     border: 1px solid var(--main-accent-color);
   }
 
+  .input::placeholder {
+    font-family: "Nunito", sans-serif;
+    font-size: 1.6rem;
+  }
+
   /* ////////////////////////// TEXTAREA //////////////////////// */
 
 
@@ -229,10 +234,16 @@
     outline: none;
     resize: vertical;
     overflow: auto;
+    font-family: "Nunito", sans-serif;
   }
 
   .textarea:focus {
     border: 1px solid var(--main-accent-color);
+  }
+
+  .textarea::placeholder {
+    font-family: "Nunito", sans-serif;
+    font-size: 1.6rem;
   }
 </style>
 
@@ -333,14 +344,28 @@
     <section class="section column-center" id="section-2">
       <h2 class="title"> * nazwa na koncie klienta</h2>
       <div class="input-box column-center">
-        <input type="text" class="input" id="input-name" placeholder="nazwa" />
+        <input type="text" class="input" id="input-name" placeholder="np. newsletter_grudzien" />
       </div>
     </section>
     <section class="section column-center" id="section-3">
-      <h2 class="title"> koncepcja</h2>
+      <h2 class="title"> koncepcja (kolory, font...)</h2>
       <div class="input-box column-center">
-
-        <textarea name="" class="textarea" id="input-concept" cols="30" rows="10"></textarea>
+        <textarea name="" class="textarea" id="input-concept" cols="30" rows="10"
+          placeholder="np. kolor buttonów #000, font: Lato"></textarea>
+      </div>
+    </section>
+    <section class="section column-center" id="section-4">
+      <h2 class="title"> elementy składowe</h2>
+      <div class="input-box column-center">
+        <textarea name="" class="textarea" id="input-draft" cols="30" rows="10"
+          placeholder="np. banner link: ..., nawigacja: men woman promo, text edytowalny, kod rabatowy XXX, stopka jak w mailu ..."></textarea>
+      </div>
+    </section>
+    <section class="section column-center" id="section-5">
+      <h2 class="title"> opis produktów</h2>
+      <div class="input-box column-center">
+        <textarea name="" class="textarea" id="input-products" cols="30" rows="10"
+          placeholder="np. 3 produkty w rzędzie, pobieramy: zdjecie, nazwę, cenę + cenę promo, przycisk"></textarea>
       </div>
     </section>
 
